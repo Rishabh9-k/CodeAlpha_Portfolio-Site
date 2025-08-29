@@ -1,0 +1,438 @@
+:root {
+    /* Color Variables */
+    --primary-color: #2a4f59;
+    --text-color: #000000;
+    --bg-color: #aeadab;
+    --section-bg: #dfd3c3;
+}
+
+.dark-mode {
+    /* Dark Mode Color Variables */
+    --primary-color: #bdafe0;
+    --text-color: #f4f4f4;
+    --bg-color: #000000;
+    --section-bg: #352f44;
+}
+
+/* General Styles */
+* {
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+body {
+    /* Body Styles */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6; /* Line height for readability */
+    color: var(--text-color); /* Text color */
+    background-color: var(--bg-color); /* Background color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for color changes */
+}
+
+/* Container */
+.container {
+    max-width: 1200px; /* Max width for the container */
+    margin-left: 8%; /* Left margin for centering */
+    padding: 0 20px; /* Padding for inner spacing */
+}
+
+/* Hero Section */
+#hero {
+    /* Hero Background and Layout */
+    margin-left: 160px;
+    height: 85vh; /* Full height of viewport */
+    width: 150vh; /* Width larger than height for design */
+    background: url('assets/img/hero-bg.jpg') no-repeat center center/cover; /* Background image */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Position for overlay */
+    text-align: center; /* Centered text */
+    color: #fff; /* Text color for hero */
+    border-radius: 20px; /* Rounded corners */
+    margin-top: 20px; /* Space above hero */
+}
+
+#hero::before {
+    /* Dark overlay for hero background */
+    content: "";
+    position: absolute; /* Positioning for overlay */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+    border-radius: 20px; /* Match corners with hero */
+}
+
+.hero-content {
+    /* Content positioning */
+    position: absolute; /* Position over the background */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the content */
+    text-align: center;
+    z-index: 2; /* Layer above the overlay */
+}
+
+.hero-content h1 {
+    font-size: 4rem; /* Large heading size */
+    font-weight: 700; /* Bold font weight */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+.hero-content p {
+    font-size: 1.5rem; /* Paragraph size */
+}
+
+#hero .hero-image {
+    /* Hero image styling */
+    width: 145vh; /* Image width */
+    height: 80vh; /* Image height */
+    object-fit: fill; /* Fill the area */
+    object-position: center; /* Center the image */
+    border-radius: 20px; /* Rounded corners */
+}
+
+/* Buttons */
+.btn-get-started {
+    padding: 10px 30px; /* Padding for button */
+    background-color: #00bfa5; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+}
+
+.btn-get-started:hover {
+    background-color: #008f76; /* Darker color on hover */
+}
+
+/* Header */
+header {
+    background-color: var(--bg-color); /* Header background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: sticky; /* Sticky positioning */
+    top: 0; /* Stick to top */
+    z-index: 1000; /* High z-index to overlay other content */
+}
+
+nav {
+    display: flex; /* Flexbox for navigation layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center vertically */
+    padding: 20px 0; /* Padding for navigation */
+}
+
+.logo {
+    font-size: 1.5rem; /* Logo size */
+    font-weight: bold; /* Bold font */
+    color: var(--primary-color); /* Logo color */
+}
+
+.nav-links {
+    display: flex; /* Flex layout for links */
+    gap: 20px; /* Space between links */
+}
+
+.nav-links a {
+    text-decoration: none; /* Remove underline */
+    color: var(--text-color); /* Link color */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.nav-links a:hover {
+    color: var(--primary-color); /* Change color on hover */
+}
+
+.dark-mode-toggle {
+    background: none; /* No background */
+    border: none; /* No border */
+    color: var(--text-color); /* Toggle color */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 1.2rem; /* Font size */
+}
+
+/* Main Content */
+main {
+    margin-top: 40px; /* Space above main content */
+}
+
+section {
+    margin-bottom: 60px; /* Space below sections */
+    padding: 40px; /* Padding within sections */
+    background-color: var(--section-bg); /* Section background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Headings */
+h1, h2, h3 {
+    margin-bottom: 20px; /* Space below headings */
+    color: var(--primary-color); /* Heading color */
+}
+
+/* About Section */
+.about-content {
+    display: grid; /* Grid layout for about content */
+    grid-template-columns: 1fr 2fr; /* Two columns */
+    gap: 40px; /* Space between columns */
+}
+
+#about .about-image {
+    border-radius: 20px; /* Rounded corners for images */
+}
+
+.about-image img {
+    border: 6px solid white; /* White border around images */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid; /* Grid layout for skills */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between skill items */
+}
+
+.skill-bar {
+    background-color: #e0e0e0; /* Background for skill bars */
+    height: 10px; /* Height of skill bars */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+}
+
+.skill-progress {
+    height: 100%; /* Full height */
+    background-color: var(--primary-color); /* Progress color */
+    transition: width 1s ease-in-out; /* Smooth width transition */
+}
+
+/* Testimonial Section */
+.testimonial-slider {
+    position: relative; /* Relative positioning for slider */
+    overflow: hidden; /* Hide overflow */
+    max-width: 600px; /* Max width for testimonial slider */
+    margin: 0 auto; /* Center align */
+}
+
+.testimonial {
+    display: none; /* Hide testimonials by default */
+    animation: fadeIn 0.5s; /* Fade in animation */
+}
+
+.testimonial.active {
+    display: block; /* Show active testimonial */
+}
+
+.testimonial-content {
+    display: flex; /* Flex layout for testimonial content */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center text */
+}
+
+.testimonial img {
+    width: 150px; /* Image width */
+    height: 150px; /* Image height */
+    border-radius: 50%; /* Circular images */
+    margin-bottom: 20px; /* Space below image */
+    object-fit: cover; /* Cover image */
+}
+
+.testimonial-text {
+    max-width: 500px; /* Max width for testimonial text */
+}
+
+.testimonial h3 {
+    margin-bottom: 5px; /* Space below name */
+    color: var(--primary-color); /* Name color */
+}
+
+.testimonial h4 {
+    margin-bottom: 15px; /* Space below title */
+    font-style: italic; /* Italic style */
+    color: var(--text-color); /* Title color */
+    opacity: 0.8; /* Slight transparency */
+}
+
+.testimonial p {
+    line-height: 1.6; /* Line height for readability */
+}
+
+.slider-nav {
+    text-align: center; /* Center align navigation */
+    margin-top: 20px; /* Space above navigation */
+}
+
+.slider-nav button {
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 1.5rem; /* Font size */
+    color: var(--primary-color); /* Button color */
+    cursor: pointer; /* Pointer cursor */
+    margin: 0 10px; /* Space between buttons */
+}
+
+/* Contact Form */
+.contact-form {
+    display: grid; /* Grid layout for form */
+    gap: 20px; /* Space between form groups */
+}
+
+.form-group {
+    display: flex; /* Flex layout for form groups */
+    flex-direction: column; /* Stack vertically */
+}
+
+input, textarea {
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #000000; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px; /* Padding for buttons */
+    background-color: var(--primary-color); /* Background color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker color on hover */
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed; /* Fixed positioning */
+    bottom: 20px; /* Space from bottom */
+    right: 20px; /* Space from right */
+    background-color: var(--primary-color); /* Background color */
+    color: white; /* Text color */
+    width: 50px; /* Width */
+    height: 50px; /* Height */
+    border-radius: 50%; /* Circular button */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center content */
+    align-items: center; /* Center content */
+    text-decoration: none; /* Remove underline */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s; /* Smooth opacity transition */
+}
+
+.back-to-top.visible {
+    opacity: 1; /* Show when visible */
+}
+
+/* Resume Section */
+.resume-content {
+    display: grid; /* Grid layout for resume */
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 40px; /* Space between columns */
+}
+
+/* Timeline Section */
+.timeline-item {
+    padding-left: 20px; /* Indent timeline items */
+    border-left: 2px solid var(--primary-color); /* Left border */
+    position: relative; /* Relative positioning */
+    margin-bottom: 30px; /* Space below items */
+}
+
+.timeline-item::before {
+    /* Dot for timeline */
+    content: '';
+    position: absolute; /* Positioning */
+    width: 16px; /* Dot size */
+    height: 16px; /* Dot size */
+    border-radius: 50%; /* Circular dot */
+    left: -9px; /* Position to the left */
+    top: 0; /* Align to top */
+    background: var(--primary-color); /* Dot color */
+    border: 2px solid var(--bg-color); /* Border for dot */
+}
+
+.timeline-item h4 {
+    margin-bottom: 10px; /* Space below title */
+    font-size: 18px; /* Title size */
+    font-weight: 600; /* Bold font */
+}
+
+.timeline-item h5 {
+    font-size: 16px; /* Subtitle size */
+    background: var(--section-bg); /* Background color */
+    padding: 5px 15px; /* Padding for subtitle */
+    display: inline-block; /* Inline block */
+    font-weight: 600; /* Bold font */
+    margin-bottom: 10px; /* Space below subtitle */
+}
+
+.timeline-item ul {
+    list-style-type: none; /* Remove list bullets */
+    padding-left: 0; /* No padding */
+}
+
+.timeline-item ul li {
+    padding-left: 20px; /* Indent list items */
+    position: relative; /* Relative positioning */
+    margin-bottom: 10px; /* Space below items */
+}
+
+.timeline-item ul li::before {
+    /* Custom bullet for list items */
+    content: '▹'; /* Bullet character */
+    position: absolute; /* Positioning */
+    left: 0; /* Align to left */
+    color: var(--primary-color); /* Bullet color */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    /* Adjust layout for mobile screens */
+    .about-content {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .nav-links {
+        display: none; /* Hide links by default */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+        flex-direction: column; /* Stack vertically */
+        position: absolute; /* Absolute positioning */
+        top: 100%; /* Position below header */
+        left: 0; /* Align to left */
+        right: 0; /* Align to right */
+        background-color: var(--bg-color); /* Background color */
+        padding: 20px; /* Padding for dropdown */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    }
+
+    .menu-toggle {
+        display: block; /* Show menu toggle */
+        background: none; /* No background */
+        border: none; /* No border */
+        font-size: 1.5rem; /* Font size */
+        color: var(--text-color); /* Color */
+        cursor: pointer; /* Pointer cursor */
+    }
+
+    .resume-content {
+        grid-template-columns: 1fr; /* Single column for resume */
+    }
+}
+
+/* Additional Custom Styles */
+.con2 {
+    margin-left: 17%; /* Custom margin */
+}
+
+.b2 {
+    background-color: rgb(54, 180, 180); /* Custom background color */
+}
